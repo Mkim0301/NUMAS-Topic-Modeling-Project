@@ -4,7 +4,7 @@ This repository contains the analysis for our study on academic-oriented nonmedi
 
 ## 📚 Study Overview
 
-The dataset used for this study was collected from the **“ADHD Minor Gallery”** on DCinside, one of Korea’s largest online forums. A total of **75,190 posts** from **January 1, 2021 to December 31, 2022** were collected.
+The dataset used for this study was collected from the **“ADHD Minor Gallery”** on DCinside, one of Korea’s largest online forums. A total of **75,190 posts** from **January 1, 2021 to December 31, 2022** were collected. DCinside gave us permission to use the data for this research.
 
 A two-step filtering process was applied:
 1. **MPH keyword filter** (e.g., "Concerta", "Bisphentin", "Metadate")  
