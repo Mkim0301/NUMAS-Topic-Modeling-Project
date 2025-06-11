@@ -1,39 +1,62 @@
 # NUMAS-Topic-Modeling-Project
 
-This repository contains the analysis for our study on academic-oriented nonmedical use of methylphenidate (NUMAS) based on online forum discussions.
+This repository contains the full pipeline for analyzing nonmedical use of methylphenidate (MPH) for academic purposes using topic modeling on Korean online forum data.
+
+---
 
 ## 📚 Study Overview
 
-The dataset used for this study was collected from the **“ADHD Minor Gallery”** on DCinside, one of Korea’s largest online forums. A total of **75,190 posts** from **January 1, 2021 to December 31, 2022** were collected. DCinside gave us permission to use the data for this research.
+The dataset was collected from the **"ADHD Minor Gallery"** on **DCinside**, one of South Korea's largest online forums. With official permission from DCinside, a total of **75,190 posts** from **January 1, 2021 to December 31, 2022** were used.
 
-A two-step filtering process was applied:
-1. **MPH keyword filter** (e.g., "Concerta", "Bisphentin", "Metadate")  
-2. **Academic-use-related terms** (e.g., “study”, “exam”, “CSAT”, “quiz”, “report”)  
+A two-step filtering process was applied to extract relevant content:
 
-We performed topic modeling using **Latent Dirichlet Allocation (LDA)**.
+1. **MPH keyword filtering**: Detect mentions of methylphenidate and its brand names (e.g., "Concerta", "Bisphentin", "Medikinet").
+2. **Academic-use filtering**: Retain posts related to studying, exams, or academic stress (e.g., “CSAT”, “quiz”, “report”).
 
-## Contents
-- Data pre-processing
-- Tol
-- Topic modeling with LDA
+We conducted topic modeling using **Latent Dirichlet Allocation (LDA)** and visualized results with **pyLDAvis**. Topic coherence was evaluated using the **NPMI metric**.
 
-## Code Structure
+---
 
-- `R/`: Scripts for data loading and preprocessing
-  - `01_preprocess_data.R`: Loads raw data and prepares the input dataframe
-- `python/`: Scripts for topic modeling and visualization
-  - `02_topic_modeling.py`: Performs LDA topic modeling using 
-  - `03_visualize_topics.py`: Plots interactive topic maps using pyLDAvis
-
+ 
 ## 🧾 Data Format
+❗ Due to ethical and privacy concerns, raw data is not shared publicly.
 
-> **Note:** Due to privacy and ethical considerations, the dataset is **not publicly shared**.
-However, to reproduce the code, your dataset must follow this format:
 
-```r
-df <- data.frame(
-  title = character(),
-  dates = as.Date(character()),
-  comments = character(),
-  URL = character()
-)
+---
+
+## 📂 Project Structure
+
+```bash
+.
+├── R/
+│   └── 01_pre_cleaning.R                 # R script: text cleaning, normalization, formatting
+│
+├── python/
+│   ├── 02_preprocessing_2-step_filtering.py    # Filters data by MPH drug mentions and study-related keywords
+│   ├── 03_preprocessing_tokenization.py        # Tokenizes text using MeCab, removes stopwords, normalization, creates frequency tables
+│   └── 04_lda_topic_modeling.py                # Performs LDA, coherence evaluation (NPMI), and pyLDAvis visualization
+│
+├── data/
+│   ├── product_ingredient.xlsx           # Brand-to-ingredient mapping dictionary
+│   ├── k_stopword.xlsx                   # Korean stopword list
+│   └── one_char_list.xlsx                # One-character tokens to exclude
+│
+└── README.md                             # This file
+
+```
+## 🔎 Required Files and Resources
+
+### `02_preprocessing_2-step_filtering.py`
+- Replaces brand names with active ingredient names using `product_ingredient.xlsx`  
+
+---
+
+### `03_preprocessing_tokenization.py`
+⚠️ **Note:** MeCab-Ko (v2.1.1+) must be installed for Korean tokenization.
+- Stopword removal (`k_stopword.xlsx`)  
+- Removal of one-character tokens (`one_char_list.xlsx`)  
+
+---
+
+
+
