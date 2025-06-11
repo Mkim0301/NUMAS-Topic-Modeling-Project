@@ -53,8 +53,8 @@ We conducted topic modeling using **Latent Dirichlet Allocation (LDA)** and visu
 
 ### `03_preprocessing_tokenization.py`
 ⚠️ **Note:** MeCab-Ko (v2.1.1+) must be installed for Korean tokenization.
-- Stopword removal (`k_stopword.xlsx`)  
-- Removal of one-character tokens (`one_char_list.xlsx`)  
+- Stopword (`k_stopword.xlsx`)  
+- one-character tokens (`one_char_list.xlsx`)  
 
 ---
 
