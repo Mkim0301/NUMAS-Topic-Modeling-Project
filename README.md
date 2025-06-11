@@ -24,7 +24,7 @@ We conducted topic modeling using **Latent Dirichlet Allocation (LDA)** and visu
 
 ---
 
-## 📂 Project Structure
+## 📂 Code and Data Structure
 
 ```bash
 .
@@ -39,7 +39,7 @@ We conducted topic modeling using **Latent Dirichlet Allocation (LDA)** and visu
 ├── data/
 │   ├── product_ingredient.xlsx           # Brand-to-ingredient mapping dictionary
 │   ├── k_stopword.xlsx                   # Korean stopword list
-│   └── one_char_list.xlsx                # One-character tokens to exclude
+│   └── one_char_list.xlsx                # One-character tokens to inlude
 │
 └── README.md                             # This file
 
